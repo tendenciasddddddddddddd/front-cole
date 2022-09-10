@@ -12,7 +12,7 @@
           <!-- Navbar -->
           <Inicio />
           <!-- End Navbar -->
-          <div class="container-fluid  py-2" >
+          <div class="container-fluid  py-2" v-bind:style= "[$store.state.isAppMobile ? {'padding-bottom':'55px !important'} : {'padding-bottom':'.5rem !important'}]">
            <router-view/>
             <!-- INICIO FOOTER -->
            <!-- <Help/> -->
@@ -24,27 +24,6 @@
         
       </div>
       <Login v-else />
-      <!-- NOTIFICACIONES-->
-      <notifications group="global" position="bottom center" width="40%" style="z-index: 9999;">
-        >
-        <template slot="body" slot-scope="props">
-          <div
-            :class="'alert alert-dark alert-dismissible fade show text-white'"
-          >
-            <span class="alert-icon"><i class="ni ni-like-2"></i></span> &nbsp;&nbsp;
-            <span class="alert-text" v-html="props.item.text"></span>
-            &nbsp;&nbsp;
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        </template>
-      </notifications>
     </template>
     <div v-else class="text-center" style="margin-top:300px; font-size:25px;">
       <p>Estamos cargando...</p>

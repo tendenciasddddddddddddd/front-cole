@@ -1,10 +1,11 @@
 //const info = JSON.parse(localStorage.getItem("Xf"));
 import ProgressBar from '../../../shared/ProgressBar';
+import NoFound2 from "../../../shared/NoFound2";
 import XLSX from 'xlsx';
 export default {
     name: 'Nota',
     components:{
-      ProgressBar
+      ProgressBar, NoFound2
     },
     data() {
         return {
@@ -41,6 +42,7 @@ export default {
              .catch((e) => {
                console.log("Error not found",e);
                this.isData = false;
+               this.$Progress.finish();
              });
             }
         },

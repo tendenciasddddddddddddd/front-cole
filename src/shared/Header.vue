@@ -6,7 +6,7 @@
       <a class="navbar-brand m-0" href="javascript:;"  >
         <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="burger-icon opacity-transition s-absolute s-right-24px s-cursor-pointer s-flex-none s-to-right" style="width: 28px; height: 28px;"><g class="style-scope yt-icon"><path d="M21,6H3V5h18V6z M21,11H3v1h18V11z M21,17H3v1h18V17z" class="style-scope yt-icon"></path></g></svg>
         
-         <span class="sidenav-mini-icon" style="font-size:20px"> &nbsp; Pcei Tulcán </span>
+         <span class="sidenav-mini-icon" style="font-size:20px"> &nbsp; Sistema </span>
       </a>
       
     </div>
@@ -265,7 +265,7 @@
       
         </li>
           <li class="nav-item" v-if="user.roles.includes('Estudiante')">
-          <a :class="{'actived': $route.name === 'e2'}"
+          <a :class="{'actived': $route.name === 'e2'||$route.name === 'e3'||$route.name === 'e4'}"
           data-bs-toggle="collapse" href="#componentsExamples" class="nav-link " aria-controls="componentsExamples" role="button" aria-expanded="false">
             <div class="icon-shape icon-sm  border-radius-md  text-center d-flex align-items-center justify-content-center  me-2">
                <i class='bx bxs-graduation icons' ></i>
@@ -349,10 +349,7 @@
                     <span class="sidenav-mini-icon"> P </span>
                     <span class="sidenav-normal letras fuente">Página pública </span>
                 </a>
-              </li>
-               
-        
-              
+              </li> 
             </ul>
           </div>
         </li>
@@ -362,7 +359,7 @@
         <div class="nav-item" id="step_6">
              <li >
             <a 
-           @click="toursMain()" class="nav-link "  role="button" aria-expanded="false" >
+           class="nav-link "  role="button" aria-expanded="false" >
             <div class="icon-shape icon-sm  border-radius-md  text-center d-flex align-items-center justify-content-center  me-2">
               <i class='bx bx-help-circle icons' ></i>
               
@@ -389,7 +386,7 @@
          
         </li>
         </div>
-        <v-tour name="myTour" :steps="steps" :options="myOptions"></v-tour>
+      
         <div v-if="visibl">
            <Password @cerrarCuenta="close"/>
         </div>
@@ -410,93 +407,9 @@
          user: this.$store.state.user,
          isMobile: false,
          visibl: false,
-          myOptions: {
-        useKeyboardNavigation: false,
-        labels: {
-          buttonSkip: "Salir",
-          buttonPrevious: "Anterior",
-          buttonNext: "Siguiente",
-          buttonStop: "¡Entendido!",
-        },
+         myOptions: {
+         useKeyboardNavigation: false,
       },
-      steps: [
-        {
-          target: "#step_1", // We're using document.querySelector() under the hood
-          header: {
-            title: "Área personal",
-          },
-          content: `Aquí no solo encontrarás el home, sino tambien opción para cambiar contraseña y perfil.`,
-          params: {
-           highlight: true,
-           placement: 'right'
-          }
-        },
-        {
-          target: "#step_2",
-          header: {
-            title: "Registros",
-          },
-          content: "Puedes registrar las zonas, estudiantes y docentes",
-          params: {
-           highlight: true,
-           placement: 'right'
-          }
-        },
-        {
-          target: "#step_3",
-           header: {
-            title: "Gestión de los cursos",
-          },
-          content: "Puedes crear cursos, asignaturas y registrar el distributivo",
-          params: {
-           highlight: true,
-           placement: 'right'
-          }
-        },
-        {
-          target: "#step_4", header: {
-            title: "Matriculas",
-          },
-          content: "Encuentra en esta sección todas la matriculas de lad 2 modalidades y imprimir un reporte.",
-           params: {
-           highlight: true,
-           placement: 'right'
-          }
-        },
-        {
-          target: "#step_5",
-           header: {
-            title: "Otros",
-          },
-          content: "Ubica aquí la página pública de la PCEI",
-           params: {
-           highlight: true,
-           placement: 'right'
-          }
-        },
-         {
-          target: "#step_6",
-           header: {
-            title: "Mas Opciones",
-          },
-          content: "Si aún tienes dudas sobre como funciona la plataforma, con mucho gusto te podemos ayudar",
-           params: {
-           highlight: true,
-           placement: 'right'
-          }
-        },
-        {
-          target: ".step_7",
-           header: {
-            title: "Herramientas",
-          },
-          content: "Puedes configurar esta pagina y recivir las notificaciones en tiempo real de la plataforma",
-           params: {
-           highlight: true,
-           placement: 'bottom'
-          }
-        },
-      ],
        }
      },
       beforeDestroy () {
@@ -520,9 +433,6 @@
     },
     onResize () {
       this.isMobile = window.innerWidth < 600
-    },
-    toursMain(){
-       this.$tours["myTour"].start();
     },
     openCuenta() {
       this.visibl = true;

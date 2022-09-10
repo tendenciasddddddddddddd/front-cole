@@ -18,8 +18,8 @@
   >
     <div class="container-fluid py-1 px-1" >
      
-     <svg aria-label="Vercel Logo" fill="#000" viewBox="0 0 75 65" width="20"><path d="M37.59.25l36.95 64H.64l36.95-64z"></path></svg>
-     <div >
+     <svg  v-if="!$store.state.isAppMobile" aria-label="Vercel Logo" fill="#000" viewBox="0 0 75 65" width="20"><path d="M37.59.25l36.95 64H.64l36.95-64z"></path></svg>
+     <div  v-if="!$store.state.isAppMobile">
         
          <span class="ms-3 s-title-page">
         {{$store.state.first_text}}
@@ -50,37 +50,19 @@
         id="navbar" 
       >
         <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-         
-         <i style="color: black;font-size:26px;" class="bx bx-search me-3" aria-hidden="true"></i>
-         <i style="color: black;font-size:26px;" class="bx bx-cog me-3" aria-hidden="true"></i>
-         
-           <i style="color: black;font-size:26px;" class='bx bx-bell' aria-hidden="true"></i>
+ 
+         <svg v-tooltip="'Buscar..'" class="me-3" data-testid="geist-icon" fill="none" height="25" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="25" style="color: #000; cursor: pointer;"><path d="M11 17.25a6.25 6.25 0 110-12.5 6.25 6.25 0 010 12.5z"></path><path d="M16 16l4.5 4.5"></path></svg>
+         <svg v-tooltip="'Configuración'" class="me-3" data-testid="geist-icon" fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="color: #000; cursor: pointer;"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"></path></svg>
+        <svg v-tooltip="'Notifications'" class="me-3" data-testid="geist-icon" fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="color: #000; cursor: pointer;"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 01-3.46 0"></path></svg>
+        <svg v-tooltip="'Cerrar sesión'"  @click="logout" data-testid="geist-icon" fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" style="color: #000; cursor: pointer;"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"></path><path d="M10 17l5-5-5-5"></path><path d="M15 12H3"></path></svg>
         </div>
 
         <ul class="navbar-nav justify-content-end">
          
-          <!-- <li class="nav-item px-3 d-flex align-items-center">
-            
-            <template v-if="isOnline"></template>
-            <template v-else>
-              <div>
-                 <div  class="loadingg">
-                  <div class="inn ">
-                    <i class='bx bx-wifi-off' style="font-size:150px"></i>
-                
-                            <p class="parrafo text-dark">En este momento no tienes conexión a internet.</p>
-                  </div>
-
-                </div>
-              </div>
-            </template>
-           
-          </li> -->
           <li class="nav-item dropdown  d-flex align-items-end">
             <a
               href="javascript:;"
               class="nav-link text-body p-0"
-              @click="activar"
             >
               <div class="avatar me-3 ">
                 
@@ -91,25 +73,7 @@
                 />
               </div>
             </a>
-            <ul
-              class="dropdown-menu dropdown-menu-end px-2 py-3  me-sm-n4"
-              
-              :class="{ 'show': isActive === true }"
-            >
- 
-              <li class="mb-2 text-center">
-                
-                <a style="font-size: 16px"
-                  class="fuente text-sm "
-                  @click="logout"
-                >
-                <h6 class="ms-3" style="color:#273b49" v-if="!$store.state.isAppMobile"> Hola, {{nombre.split(' ')[0]}} {{nombre.split(' ')[2]}}</h6>
-                <h6 class="ms-3 me-3" style="color:#273b49" v-else>  {{nombre.slice(0,11)}}...</h6>
-                <b class="links">Cerrar sesión</b>
 
-                </a>
-              </li>
-            </ul>
           </li>
           
         </ul>
@@ -146,13 +110,7 @@ export default {
       this.$store.commit('agregar2',{img})
       this.nombre= info.nombre;
     },
-    activar(){
-      if (this.isActive) {
-        this.isActive=false;
-      }else{
-        this.isActive=true;
-      }
-    },
+
      isMobile() {
        let estado;
                 if( screen.width <= 760 ) {

@@ -1,34 +1,12 @@
 <template>
-  <div class="row">
-    <div class="col-lg-11 col-12 mx-auto mt-4">
+    <section >
       <vue-progress-bar></vue-progress-bar>
       <ProgressBar v-if="isData"></ProgressBar>
       <template v-else>
-        <div v-if="!info" >
-            <div class="alertdanger">
-              <p class="text-sm fuente text-dark" style="margin:7px; ">
-                Su matrícula aun no está registrada, para resolver esto
-                comuníquese con secretaria para registre su matrícula.
-              </p>
-            </div>
-
-            <div class=" mt-4">
-              
-                <div class="text-center">
-                  <img
-                    class="w-25"
-                    src="../../../assets/img/logs/lupa.svg"
-                    alt="fondo"
-                  />
-                  <div class="letra fuente mt-3">No hay datos que mostrar</div>
-                </div>
-              
-            </div>
-        </div>
-
+        <section v-if="!info" >
+          <NoFound2/>
+        </section>
         <div v-else>
-           
-              <br />
               <span
                 class="mt-1"
                 style="font-weight: 700;color:#181B32; font-size: 19px;"
@@ -92,7 +70,7 @@
                 <div>
                   <div
                     v-if="inAlumnos.length"
-                    class="card-body px-0 pt-0 pb-2 mt-2"
+                    class=" mt-2"
                   >
                     <div class="table-responsive p-0">
                       <table
@@ -400,8 +378,7 @@
           </div>
         </div>
       </template>
-    </div>
-  </div>
+    </section>
 </template>
 
 <script src="./Nota.js"></script>

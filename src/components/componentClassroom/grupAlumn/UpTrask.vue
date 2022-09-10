@@ -1,11 +1,11 @@
 <template>
   <FullModal @close="close">
-    <template v-slot:header> {{ collects.nombre }}</template>
+    <template v-slot:header> {{ collects.nombre }} </template>
     <template v-slot:body>
       <div v-if="!tarea_atrazada">
-        <p class="parrafo " v-html="collects.descripcion"></p>
-        <span class="text-sm"> {{ isPlaso }} </span>
-        <div lass="mt-2">
+        <span class="text-sm negros" v-html="collects.descripcion"></span>
+        <span class="text-xs negros"> {{ isPlaso }} </span>
+        <div >
           <a v-if="collects.archivo" class="parrafo" style=" cursor: pointer;" target="_blank"
             :href="collects.archivo">
             <span class=" links">Detalle de esta tarea (Desacargar)</span>

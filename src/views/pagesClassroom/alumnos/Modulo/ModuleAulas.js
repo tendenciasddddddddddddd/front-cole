@@ -29,7 +29,6 @@ export default {
             .get(this.$route.params.id)
             .then((x) => {
               this.info = x.data;
-              console.log(this.info)
               this.fullTask = this.info.task.reverse();
               this.collectionUser = this.info.estudiantes;
               this.collectionQuizz = this.info.examen.reverse();

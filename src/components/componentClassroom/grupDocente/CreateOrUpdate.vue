@@ -64,7 +64,7 @@ export default {
         _id: null,
         task: {
           nombre: null,
-          descripcion: null,
+          descripcion: 'Entregar en formato pdf',
           archivo: null,
           finicio: null,
           estado: null,

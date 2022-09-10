@@ -2,10 +2,11 @@
   <div>
     <ActionRowUser :longitude="isSelecUsers.length" @changeSearch="changeSearchs" @examDetail="examDetail"
       @gets="editTask" @openModal="openModal" @getDataAlls="getDataAll" />
-    <div v-if="displayedArticles.length">
+    <div v-if="displayedArticles.length"> 
+      <div class="mt-3"></div>
       <Items v-for="(item, index) in displayedArticles" :key="item.id" :item="item" :index="index" @nextPage="openModal"
         @selectOne="selectOne" />
-      <Paginate :numPages="numPages" :page="page" :total="object.length" @pagechanged="onPageChange"></Paginate>
+      <Paginate :numPages="numPages" :page="page" :total="object.length" @pagechanged="onPageChange" ></Paginate>
 
     </div>
     <NoFound v-else />

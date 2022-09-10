@@ -1,15 +1,11 @@
 <template>
   <div class="row">
-    
     <div class="col-lg-8 col-12 mx-auto">
       <div class="mt-2">
-        
-         <h1 style="font-weight: 400;" class="remix fuente " >Bienvenidos al sistema.<span>&#160;</span></h1>
+         <h1 style="font-weight: 400;" class="remix fuente negros" >Bienvenidos al sistema.<span>&#160;</span></h1>
       </div>
-      
     </div>
-  
-    <div class="col-lg-6 mt-5">
+    <div class="col-lg-5 mt-5">
       <div class="" id="sessions">
         <div class="card-header pb-3">
           <h5 class="fuente">Sesiones</h5>
@@ -36,7 +32,6 @@
               <span class="badge badge-success badge-sm my-auto ms-auto me-3 fuente"
                 >Active</span
               >
-
               <a
                 href="javascript:;"
                 class="text-primary text-sm icon-move-right my-auto"
@@ -58,26 +53,17 @@
           </div>
           <hr class="horizontal dark" />
         </div>
-        <div  class="mt-3">
-          
+        <div  class="mt-3"> 
         </div>
-  
-   <!-- <img
-        class="w-75"
-        
-        src="../assets/img/icons/nofound.svg"
-        alt=""
-      /> -->
-
 
       </div>
     </div>
 
-    <div class="col-lg-6  mt-1 text-center">
-      <img
-        class="w-100"
+    <div class="col-lg-7  mt-1 text-center">
+      <img style="height: calc(100% - 50px);"
+        class="w-80"
         
-        src="https://assets.vercel.com/image/upload/q_auto/front/assets/design/components/triangle.gif"
+        src="https://na.static.mega.co.nz/4/images/mega/bottom-page/start_img3@2x.png?v=f907575db76f9466"
         alt=""
       />
     </div>

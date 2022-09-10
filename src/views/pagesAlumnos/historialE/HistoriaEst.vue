@@ -1,13 +1,12 @@
 <template>
-      <div class="row ">
-    <div class="col-lg-9 col-12 mx-auto">
+    <div >
         <div class="row">
                  <div class="col-sm-12">
-                     <h3 class="mt-1 fuente" style="font-weight: 400;"> Historial Académico</h3>
+                     <h5 class="mt-1 fuente negros" style="font-weight: 400;"> Historial Académico</h5>
                  </div>
             </div>
           <div  class="row">
-            <div class="table-responsive p-0 mt-5">
+            <div class="table-responsive p-0 mt-3">
               <table class="table align-items-center mb-0">
                 <thead>
                   <tr class="cabeza">
@@ -48,7 +47,6 @@
             </div>
           </div>
     </div>
-  </div>
 </template>
 
 <script src="./HistoriaEst.js"></script>

@@ -118,7 +118,7 @@ export default {
       this.page = page;
     },
   remove() {
-    if (this.isSelecUsers.length > 0) return;
+    console.log("remove: ");
       let message = {
         title: "¿Esta seguro que quiere eliminar?",
         body: " Esta acción no se puede deshacer",
