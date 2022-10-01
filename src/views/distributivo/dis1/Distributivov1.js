@@ -14,6 +14,7 @@ export default {
         AlertHeader,
         Modal: () => import(/* webpackChunkName: "Modal" */ "../../../shared/Modal.vue"),
         Dropdown: () => import(/* webpackChunkName: "Dropdown" */ "../../../shared/Dropdown.vue"),
+        GridDistributivo : () => import( /* webpackChunkName: "GridDistributivo" */ '../../../components/agGrid/GridDistributivo.vue'),
         ActionsRow
       },
     data(){
@@ -40,13 +41,28 @@ export default {
           paralelos: [
             {
               value: "0",
-              nombre: "B",
+              nombre: "A",
             },
             {
               value: "1",
-              nombre: "G",
+              nombre: "B",
             },
-
+            {
+              value: "2",
+              nombre: "C",
+            },
+            {
+              value: "3",
+              nombre: "D",
+            },
+            {
+              value: "4",
+              nombre: "E",
+            },
+            {
+              value: "5",
+              nombre: "F",
+            },
           ],
           isSelecUsers: [],
           subtitulo: 'none',
@@ -60,9 +76,16 @@ export default {
           selecParalelos: '',
           idperiodoActualIntensivo: null,
           rows: 6,
+          ifGrid : false,
       }
     },
     methods: {
+      openAgGrid: function () {
+        this.ifGrid = true;
+      },
+      closeAgGrid: function () {
+        this.ifGrid = false;
+      },
       verificarUsuario() {
         let text_1 = 'Distributivo'
         let text_2 = 'Intensivos'
@@ -301,6 +324,9 @@ export default {
         this.model._id = "";
         this.model.fnivel = null;
         this.model.fmateria = null;
+      },
+      refreshData(){
+        this.getAll(1,6);
       },
       toast(message) {
         this.$toasted.info(message, {

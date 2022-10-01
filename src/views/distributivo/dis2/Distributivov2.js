@@ -42,25 +42,10 @@ export default {
           paralelos: [
             {
               value: "0",
-              nombre: "A",
+              nombre: "G",
             },
          
-            {
-              value: "1",
-              nombre: "C",
-            },
-            {
-              value: "2",
-              nombre: "D",
-            },
-            {
-                value: "4",
-                nombre: "E",
-            },
-            {
-                value: "4",
-                nombre: "F",
-              },
+          
           ],
           isSelecUsers: [],
           subtitulo: 'none',

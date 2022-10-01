@@ -5,6 +5,7 @@ import router from './router'
 import proxyConfig from './proxies/_config'
 import store from './store/index'
 import SimpleVueValidation from 'simple-vue-validator';
+import 'ag-grid-enterprise';
 
 import { VTooltip, VPopover, VClosePopover } from 'v-tooltip'
 import vSelect from "vue-select";

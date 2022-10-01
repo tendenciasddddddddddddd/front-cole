@@ -10,7 +10,7 @@ export default {
     Spinner,
     AlertHeader,
     AlumnoCreateOrUpdate: () => import( /* webpackChunkName: "CreateOrUpdate" */ './components/AddAlumno.vue'),
-    Modal: () => import( /* webpackChunkName: "Modal" */ "../../shared/Modal.vue"),
+    GridUser : () => import( /* webpackChunkName: "GridUser" */ '../../components/agGrid/GridUser.vue'),
     Paginate2,
     ActionsRow
   },
@@ -37,6 +37,7 @@ export default {
       ifCreateUpdate: false,
       idUser: null,
       visible: false,
+      ifGrid : false,
     };
   },
   methods: {
@@ -61,6 +62,12 @@ export default {
     },
     closedChildAlumno: function () {
       this.ifCreateUpdate = false;
+    },
+    openAgGrid: function () {
+      this.ifGrid = true;
+    },
+    closeAgGrid: function () {
+      this.ifGrid = false;
     },
     refreshData: function () {
       this.getAll(this.paginaActual, 6);
@@ -114,7 +121,7 @@ export default {
           .then(() => {
             this.iseliminaddo = false;
             this.userIds = [];
-            this.getAll(this.paginaActual, 6);
+            this.getAll(this.paginaActual, this.rows);
             this.allSelected = false;
           })
           .catch(() => {

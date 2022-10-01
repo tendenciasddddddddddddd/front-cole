@@ -1,12 +1,11 @@
 <template>
   <div>
     <ActionRowUser :longitude="isSelecUsers.length" @changeSearch="changeSearchs" @examDetail="examDetail"
-      @gets="editTask" @openModal="openModal" @getDataAlls="getDataAll" />
-    <div v-if="displayedArticles.length"> 
-      <div class="mt-3"></div>
+      @gets="editTask" @openModal="openModal" @getDataAlls="getDataAll" /> 
+    <div class="mt-3" v-if="displayedArticles.length">
       <Items v-for="(item, index) in displayedArticles" :key="item.id" :item="item" :index="index" @nextPage="openModal"
         @selectOne="selectOne" />
-      <Paginate :numPages="numPages" :page="page" :total="object.length" @pagechanged="onPageChange" ></Paginate>
+      <Paginate :numPages="numPages" :page="page" :total="object.length" @pagechanged="onPageChange"></Paginate>
 
     </div>
     <NoFound v-else />
@@ -61,7 +60,6 @@ export default {
       } else {
         return this.paginate(this.collections);
       }
-
     }
   },
   methods: {

@@ -57,18 +57,12 @@
     </li>
       <li>
             <div class="btn-group dropup me-3 ms-3">
-              <a
-                type="button"
-                class="fuente tamanio links paginates dropdown-toggle "
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+              <a  @click="activar" type="button"
+                class="fuente tamanio links paginates dropdown-toggle " >
                 <b> {{subtitulo}} </b>
               </a>
-              <ul
-                class="dropdown-menu px-2 py-3"
-                aria-labelledby="dropdownMenuButton"
-              >
+              <ul  :class="{ 'show': isActive === true }"
+                class="dropdown-menu px-2 py-3">
                 <li>
                   <a
                    @click="goChangedQuery(6)"
@@ -112,7 +106,6 @@ export default {
       type: Number,
       required: true
     },
-
     page: {
       type: Number,
       required: true
@@ -128,15 +121,21 @@ export default {
       return {
           numPagesh: this.numPages,
           pageh: this.page,
+          isActive: false,
       }
   },
    methods: {
-
+    activar(){
+      if (this.isActive) {
+        this.isActive=false;
+      }else{
+        this.isActive=true;
+      }
+    },
     onClickPreviousPage() {
         this.pageh--;
       this.$emit('pagechanged', this.pageh);
     },
-
     onClickNextPage() {
         this.pageh++;
       this.$emit('pagechanged', this.pageh );
@@ -147,4 +146,3 @@ export default {
   }
 };
 </script>
-

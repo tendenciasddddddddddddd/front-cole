@@ -1,7 +1,7 @@
 <template>
     <div>
       <AlertHeader :firsttext="'Gestionar distributivo'" :lasttext="'Crea, edita, elimina y filtra'"></AlertHeader> 
-       <ActionsRow :longitude="isSelecUsers.length"  @remove="remove" @gets="gets" @openModal="openModal"/>
+       <ActionsRow :longitude="isSelecUsers.length"  @remove="remove" @gets="gets" @openModal="openModal" @openModalh="openAgGrid"/>
         <Spinner v-if="isLoading"></Spinner>
         <div v-else >
           <div v-if="!info.length" >
@@ -147,6 +147,9 @@
                 </form>
           </template>
         </Modal>
+        <div v-if="ifGrid">
+      <GridDistributivo :docentes="listDocentes" :cursos="listniveles" :materias="listMaterias" @myEventClosedAgGrid="closeAgGrid" @getData="refreshData"/>
+    </div>
     </div>
 </template>
 <script src="./Distributivov1.js"></script>

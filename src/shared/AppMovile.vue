@@ -4,7 +4,7 @@
       class="d-flex justify-content-around s-bg-white bottom-navigation-bar s-border-top-grey-300 s-row s-nowrap s-fixed s-bottom-0 s-z-fixed s-w-full">
 
         <router-link v-if="user.roles.includes('Estudiante')"
-        class="bottom-navigation-item s-decoration-none text-center s-column s-cross-center s-main-center s-nowrap s-flex-none  s-blue-500 undefined"
+        class="bottom-navigation-item s-decoration-none text-center s-column s-cross-center s-main-center s-nowrap s-flex-none  s-blue-500 s-color-grey-600 undefined"
         to="/Consultar-nota"> <i class='bx bx-notepad s-iconsm'></i>
         <span class="text s-font-semibold">Notas</span>
       </router-link>
@@ -125,7 +125,7 @@ a:hover {
 }
 
 .s-color-grey-600 {
-  color: #687782;
+  color: rgb(94 94 96);
 }
 
 .s-cross-center {
@@ -146,7 +146,7 @@ a:hover {
 }
 
 .s-font-semibold {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .s-iconsm {

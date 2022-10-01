@@ -9,7 +9,7 @@
             ></span>
           </div>
       </div>
-       <div class="ewgrtr">
+       <div class="ewgrtr" :style="[$store.state.isAppMobile ? {'min-width': '115px'} : {'min-width': '245px'}]">
             <div class="d-flex justify-content-end">
         <div class="mt-2" v-if="!$store.state.isAppMobile">
           <span  style="color:#181B32; font-size: 18px;"
@@ -69,9 +69,13 @@
           </ul>
         </div>
         <div class="mt-2" v-if="IfAdd==1">
-          <a href="javascript:;" style="margin-top: -3px;" @click="$emit('openCreateCourse')"  class="btn btn-vercel ">
+          <a v-if="!$store.state.isAppMobile" href="javascript:;" style="margin-top: -3px;" @click="$emit('openCreateCourse')"  class="btn btn-vercel ">
             <svg data-testid="geist-icon" fill="none" height="20" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="20" style="color: currentcolor;"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
              <span class="me-2">Agregar</span> 
+            </a>
+            <a v-else href="javascript:;" style="margin-top: -3px;" @click="$emit('openCreateCourse')"  class="btn btn-vercel ">
+            <svg data-testid="geist-icon" fill="none" height="20" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="20" style="color: currentcolor;"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+           
             </a>
         </div>
       </div>
