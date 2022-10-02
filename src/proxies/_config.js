@@ -31,7 +31,7 @@ Axios.interceptors.response.use(
     error => {
       if (!error.response) {
       
-       alert('Espere un momento 🙏🙏, los servicios no se encuentra en linea, regresa al inicio hasta que los servicios se activen')
+       alert('Los servicios no se encuentra en linea, regresa al inicio hasta que los servicios se activen')
        //localStorage.removeItem('access_token');
        //window.location.reload(true);
       }
@@ -44,7 +44,7 @@ Axios.interceptors.response.use(
     }
   );
 
-let url = 'https://pcei-tulcan.com/api'; //http://localhost:3000/ https://pcei-tulcan.com   http://157.245.85.37/ http://143.198.224.118/
+let url = 'http://localhost:3000/api'; //http://localhost:3000/ https://pcei-tulcan.com   http://157.245.85.37/ http://143.198.224.118/
 // if(localStorage.getItem("config")!==null){
 //     let config = JSON.parse(localStorage.getItem("config"))
 //     url = config

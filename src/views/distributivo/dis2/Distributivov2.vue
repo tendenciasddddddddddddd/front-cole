@@ -19,66 +19,83 @@
       <div v-else>
         <div class="table-responsive mt-2">
           <table class="dataTable-table table s-table-flush">
-            <thead class="thead-light">
-              <tr class="cabeza">
-                <th style="background-color: rgb(234, 240, 246); " class="">
-                  <div class="d-flex ms-3">
-                    <div v-if="!allSelected" class="form-check my-auto" style="min-height: 0rem;">
-                      <input class="form-check-input cheka" type="checkbox" @click="selectAll" />
+              <thead class="thead-light">
+                <tr class="cabeza">
+                  <th style="background-color: rgb(234, 240, 246); "
+                  >
+                   <div class="d-flex ms-3">
+                      <div v-if="!allSelected " class="form-check my-auto" style="min-height: 0rem;">
+                        <input
+                          class="form-check-input cheka"
+                          type="checkbox"
+                          @click="selectAll"
+                        />
+                      </div>
+                       <i @click="deletedSelected" v-else class="fa fa-minus s-icon-all" aria-hidden="true"></i>
+                      <span class="ms-3 text-uppercase text-center text-xxs font-weight-bolder">
+                       Curso / Paralelo
+                      </span>
                     </div>
-                    <i @click="deletedSelected" v-else class="fa fa-minus s-icon-all" aria-hidden="true"></i>
-                    <span class="ms-3 text-uppercase text-center text-xxs font-weight-bolder">
-                      Curso / Paralelo
-                    </span>
-                  </div>
-                </th>
-                 <th class="text-uppercase  text-xxs font-weight-bolder">
-                 Materia
-                </th>
-                <th class="text-uppercase text-center text-xxs font-weight-bolder">
-                  Docente
-                </th>
-              </tr>
-            </thead>
+                  </th>
+                   <th
+                    class="text-uppercase  text-xxs font-weight-bolder">
+                    Materia
+                  </th>
+                  <th
+                    class="text-uppercase text-center text-xxs font-weight-bolder">
+                    Docente
+                  </th>
+                   <th
+                    class="text-uppercase text-center text-xxs font-weight-bolder">
+                    Planificación
+                  </th>
+                </tr>
+              </thead>
 
-            <tbody>
-              <tr v-for="item in info" :key="item.id">
-                <td>
+              <tbody>
+                <tr v-for="item in info" :key="item.id">
+                  <td>
                   <div class="d-flex ms-3">
                     <div class="form-check my-auto supcheka">
-                      <input class="form-check-input cheka" type="checkbox" v-model="isSelecUsers" :value="item._id"
-                        @click="selectOne(item._id)" />
+                      <input
+                        class="form-check-input cheka"
+                        type="checkbox"
+                         v-model="isSelecUsers" :value="item._id"
+                          @click="selectOne(item._id)"
+                      />
                     </div>
 
                     <div class="mb-0 ms-3 text-xs colorestabla fuente">
-                      <span v-if="item.fnivel">{{
-                          item.fnivel.nombre
-                      }}</span>
-                      <span v-else class="text-danger ">Elimine este resgistro</span>
+                     <span v-if="item.fnivel">{{ item.fnivel.nombre }}</span> 
+                     <span v-else class="text-danger ">Elimine este resgistro</span>
                       / {{ item.paralelo }}
                       <div>
-                       
-                      </div>
+                     
+                    </div>
                     </div>
                   </div>
                 </td>
-                 <td class="text-sm  text-dark fuente">
-                  <span class="UIStatusDot-sc-1axnt8y-0 cqKvgt"
-                          style="background-color: rgb(0, 189, 165);"></span>
-                        Materia :
-                        <span v-if="item.fmateria">{{ item.fmateria.nombre }}
-                        </span>
-                        <span v-else class="text-danger ">Elimine este resgistro</span>
+                 <td class="text-xs  text-dark fuente">
+                   <span class="UIStatusDot-sc-1axnt8y-0 cqKvgt" style="background-color: rgb(0, 189, 165);"
+                        ></span> <span v-if="item.fmateria">{{ item.fmateria.nombre }} </span>  <span v-else class="text-danger ">Elimine este resgistro</span>
                 </td>
-                <td class="text-sm text-center text-dark fuente">
-                  <span v-if="item.fdocente">
-                    {{ item.fdocente.fullname }}
-                  </span>
-                  <span v-else class="text-danger ">Elimine este resgistro es inestable</span>
+                  <td class="text-xs text-center text-dark fuente">
+                    <span > {{ item.fdocente ? item.fdocente.fullname:'Undefined' }} </span>
+                   
                 </td>
-              </tr>
-            </tbody>
-          </table>
+                 <td class="text-sm text-center text-dark fuente">
+                  <div v-if="item.planificacion!==''">
+                    <span style="background-color: rgb(0, 189, 165);" class="UIStatusDot-sc-1axnt8y-0 cqKvgt"></span>
+                   <a :href="item.planificacion" target="_blank">Entregado</a> 
+                  </div>
+                  <div v-else>
+                    <span class="UIStatusDot-sc-1axnt8y-0 cqKvgt"></span>
+                   Sin entrega
+                  </div>
+                </td>
+                </tr>
+              </tbody>
+            </table>
           <Paginate2 :numPages="paginas" :page="pagina" :total="totalNotas" :subtitulo="subtitulo"
             @pagechanged="onPageChange" @setChangedQuery="changedQuery"></Paginate2>
         </div>

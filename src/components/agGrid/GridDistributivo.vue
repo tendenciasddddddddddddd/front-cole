@@ -146,7 +146,7 @@
           {
             field: 'paralelo', cellEditor: 'agSelectCellEditor', editable: true,
             cellEditorParams: {
-              values: ['A', 'B', 'C', 'D', 'E', 'F'],
+              values: ['A', 'B', 'C', 'D', 'E', 'F', 'H'],
             },
           },
         ],
