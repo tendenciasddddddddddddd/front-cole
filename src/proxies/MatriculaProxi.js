@@ -50,6 +50,9 @@ export default class MatriculaProxi {
     getMatricula(id) {
         return this.axios.get(this.url + `/matriculas/${id}`);
     }
+    async getMatriculaReporte(id) {
+        return await this.axios.get(this.url + `/matriculas/repo/${id}`);
+    }
 
     updateMatricula(id, params) {
         return this.axios.put(this.url + `/matriculas/${id}`, params);

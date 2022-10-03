@@ -32,9 +32,9 @@
                   <input class="form-check-input cheka" type="checkbox" v-model="isSelecUsers" :value="item._id"
                     @click="selectUser(item._id)" />
                 </div>
-                <a class="mb-0 ms-3 text-sm colorestabla fuente">
+                <span class="mb-0 ms-3 text-xs colorestabla fuente">
                   {{ item.nombre }}
-                </a>
+                </span>
               </div>
             </td>
             <td class="text-sm text-center text-dark fuente">
@@ -59,7 +59,7 @@
       <template v-slot:header> Periodo Escolar</template>
       <template v-slot:body>
         <Spinner v-if="isCarga"></Spinner>
-        <form @submit.prevent="save" role="form">
+        <form @submit.prevent="save" role="form" id="prov">
           <span class="parrafo">Nombre de Periodo</span>
           <CustomInput v-model="model.nombre" />
           <p class="mb-2 text-xs fuente text-danger">
@@ -79,15 +79,14 @@
               <a class="parrafo" :for="ite.name"> {{ ite.name }}</a>
             </div>
           </div>
-          <hr class="horizontal dark mb-1 d-xl-block d-none">
-          <div class="text-center">
-            <ButtonLoading v-if="ifLoad" />
-            <button v-else type="submit" class="btn btnNaranja  mt-1 mb-0 ">
-              {{ model._id ? "Actualizar" : "Guardar" }}
-            </button>
-          </div>
         </form>
       </template>
+      <template v-slot:acccion>
+            <ButtonLoading v-if="ifLoad"/>
+                      <button form="prov" v-else type="submit" class="btn btnNaranja mt-2" style="background-color: #0c2ccc !important;">
+                        {{ model._id ? "Actualizar" : "Guardar" }}
+                      </button>
+         </template>
     </Modal>
   </div>
 </template>

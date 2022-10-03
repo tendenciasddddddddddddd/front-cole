@@ -29,6 +29,11 @@
                   <i class='bx bx-folder-plus p-5' style="font-size:60px;color:black;"></i>
               </div>
             </div>
+            <div class="intro_card_container" >
+               <div class="carmen align_center animate__animated animate__fadeInUp animations-5">
+                  <i class='bx bx-folder-plus p-5' style="font-size:60px;color:black;"></i>
+              </div>
+            </div>
           </div>
         </section>
       </div>
@@ -45,7 +50,6 @@
 import RestResource from "../../service/isAdmin";
 const restResourceService = new RestResource();
 const img1 = require("../../assets/img/shapes/90260b20-d6c6-418f-9961-9282c5d85d78.png")
-const img2 = require("../../assets/img/icons/pdf.png")
 const img3 = require("../../assets/img/logs/add-on-reporting.svg")
 const img4 = require("../../assets/img/logs/documents.svg")
 import CardsOptions from "../../shared/CardsClick.vue"
@@ -64,12 +68,7 @@ export default {
           img: img1,
           description: "Puedes crear nuevos registros de provincias segun sea necesario ",
         },
-        {
-          id: "1",
-          nombre: "Matriculas",
-          img: img2,
-          description: "Puedes crear nuevos registros de Matriculas segun sea necesario ",
-        },
+       
         {
           id: "2",
           nombre: "Notas",

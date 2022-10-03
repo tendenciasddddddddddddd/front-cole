@@ -2,8 +2,6 @@
     <ScrimModal @close="close">
         <template v-slot:header> Registrar matriculas en las modalidades disponibles</template>
          <template v-slot:body>
-            <div class="row">
-            <div class="col-lg-11 col-12 mx-auto">
               <div
               
                 class="d-flex justify-content-center"
@@ -245,8 +243,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
          </template>
         <template v-slot:footer>
                <a v-if="!isComplete" class="btn btnDisabled">Guardar</a>

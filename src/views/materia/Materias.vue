@@ -19,7 +19,7 @@
                       </div>
                        <i @click="deletedSelected" v-else  class="fa fa-minus s-icon-all" aria-hidden="true"></i>
                       <span class="ms-3 text-uppercase text-center text-xxs font-weight-bolder">
-                        Nombres
+                        Area
                       </span>
                     </div>
                    
@@ -27,7 +27,7 @@
                   <th
                   class="text-uppercase text-center text-xxs font-weight-bolder"
                 >
-                  Descripción
+                Nombres
                 </th>
                 <th
                   class="text-uppercase text-center text-xxs font-weight-bolder"
@@ -56,12 +56,12 @@
                       />
                     </div>
                     <a class="mb-0 ms-3 text-sm colorestabla fuente">
-                      {{ item.nombre }}
+                      {{ item.area }}
                     </a>
                   </div>
                 </td>
                  <td class="text-xs text-center text-dark fuente">
-                  {{ item.descripcion }}
+                  {{ item.nombre }}
                 </td>
                   <td class="mb-0 ms-3 text-sm colorestabla fuente text-center">
                   {{ item.updatedAt.substring(0,10) }}
@@ -82,17 +82,17 @@
              <Spinner v-if="isCarga"></Spinner>
                 <form @submit.prevent="save" role="form">
                   <h6 class="text-danger text-center" v-if="MsmError!=''">{{ MsmError }}</h6>
-                  <span class="parrafo">Nombre de Materia</span>
+                  <span class="parrafo">Area</span>
+                  <CustomInput v-model="model.area" />
+                  <p class=" text-xs fuente text-danger">
+                    {{ validation.firstError("model.nombre") }}
+                  </p>
+                  <span class="parrafo">Materia</span>
                   <CustomInput v-model="model.nombre" />
                   <p class=" text-xs fuente text-danger">
                     {{ validation.firstError("model.nombre") }}
                   </p>
                  
-                  <span class="parrafo mt-2">Descripción</span>
-                  <CustomInput v-model="model.descripcion" />
-                  <p class="mb-0 text-xs fuente text-danger">
-                    {{ validation.firstError("model.descripcion") }}
-                  </p>
                    <hr class="horizontal dark mb-1 d-xl-block d-none">
                   <div class="text-center">
                     <ButtonLoading v-if="ifLoad"/>

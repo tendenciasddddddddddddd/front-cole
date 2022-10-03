@@ -53,6 +53,7 @@
 </template>
 
 <script>
+const img2 = require("../../assets/img/icons/pdf.png")
 import RestResource from '../../service/isAdmin'
 import fotos from '../../service/UploadsServices';
 const restResourceService = new RestResource();
@@ -101,17 +102,18 @@ export default {
           img: images[0],
           description: "Puedes crear nueva matricula, la matricula es unica por cada estudiante",
         },
-        {
-          id: "1",
-          nombre: "Lista Matricula",
-          img: images[1],
-          description: "Puede ver o eliminar la lista de los matriculados en el periodo",
-        },
+        
         {
           id: "2",
           nombre: "Paralelos",
           img: images[2],
           description: " Puede asignar, listar y remover paralelos en cada uno de los cursos",
+        },
+        {
+          id: "1",
+          nombre: "Reporte Matricula",
+          img: img2,
+          description: "Puede ver o eliminar la lista de los matriculados en el periodo",
         },
          {
           id: "3",
@@ -143,10 +145,11 @@ export default {
           this.ifCreateUpdate = true;
           break;
         case 1:
-          this.ifRemoveMatricula = true;
+        this.ifParalelo2 = true;
           break;
         case 2:
-          this.ifParalelo2 = true;
+          
+          this.ifRemoveMatricula = true;
           break;
         case 3:
           this.ifMigracion = true;

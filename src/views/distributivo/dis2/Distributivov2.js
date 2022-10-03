@@ -14,6 +14,7 @@ export default {
         AlertHeader,
         Modal: () => import(/* webpackChunkName: "Modal" */ "../../../shared/Modal.vue"),
         Dropdown: () => import(/* webpackChunkName: "Dropdown" */ "../../../shared/Dropdown.vue"),
+        GridDistributivo2 : () => import( /* webpackChunkName: "GridDistributivo2" */ '../../../components/agGrid/GridDistributivo2.vue'),
         ActionsRow
       },
     data(){
@@ -59,36 +60,20 @@ export default {
           selecParalelos: '',
           idperiodoActualIntensivo: null,
           rows: 6,
+          ifGrid : false,
       }
     },
     methods: {
+      openAgGrid: function () {
+        this.ifGrid = true;
+      },
+      closeAgGrid: function () {
+        this.ifGrid = false;
+      },
       verificarUsuario() {
         let text_1 = 'Distributivo'
         let text_2 = 'Extraordinaria'
         this.$store.commit('updateHeader',{text_1, text_2})
-      },
-      __getPeriodo() {
-        this.isPeriodo = true;
-        this.$proxies._matriculaProxi
-          .getFull()
-          .then((x) => {
-            const filtro = x.data.niveles;
-            if (!filtro.length) {
-              this.$dialog.alert('NO HAY REGISTROS EN PERIODO ACADÉMICO !!')
-              return;
-            }
-            let listPeriodoIntensivo = filtro.filter((x) => x.typo == "Extraordinaria" && x.estado == '1');
-            if (listPeriodoIntensivo.length==0) {
-              this.$dialog.alert('NO EXISTE UN PERIODO ACADÉMICO ACTIVO PARA ESTA MODALIDAD !!')
-              return;
-            }
-            this.idperiodoActualIntensivo = listPeriodoIntensivo[0]._id;
-            this.isPeriodo = false;
-          })
-          .catch((err) => {
-            console.log("Error", err);
-            this.isPeriodo = false;
-          });
       },
       selectOne(ids) {
         if (!this.isSelecUsers.includes(ids)) {
@@ -174,7 +159,6 @@ export default {
             this.model.fnivel = this.model.fnivel._id;
             this.model.fdocente = this.selecDocente._id;
             this.model.fmateria = this.model.fmateria._id;
-            this.model.facademicos = this.idperiodoActualIntensivo;
             this.model.paralelo = this.selecParalelos.nombre;
             this.$proxies._gestionProxi.updateDistributivo(this.model._id, this.model)
               .then(() => {
@@ -192,7 +176,6 @@ export default {
             this.model.fnivel = this.model.fnivel._id;
             this.model.fdocente = this.selecDocente._id;
             this.model.fmateria = this.model.fmateria._id;
-            this.model.facademicos = this.idperiodoActualIntensivo;
             this.model.paralelo = this.selecParalelos.nombre;
             this.$proxies._gestionProxi
               .createDistributivo(this.model) //-----------GUARDAR CON AXIOS
@@ -239,7 +222,6 @@ export default {
           this.openModal();
         this.$proxies._gestionProxi.getDistributivo(this.isSelecUsers[0])
             .then((x) => {
-               console.log(x.data)
                 this.model = x.data;
                 this.selecParalelos = x.data.paralelo
                 this.isCarga = false; 
@@ -304,6 +286,9 @@ export default {
       this.model.fnivel = null;
       this.model.fmateria = null;
     },
+    refreshData(){
+      this.getAll(1,6);
+    },
       toast(message) {
         this.$toasted.info(message, {
           duration: 2600,
@@ -321,7 +306,6 @@ export default {
     },
     created() {
       this.verificarUsuario();
-      this.__getPeriodo();
       this.getAll(1,6);
       this. __listNivele();
       this.__listdocentes();

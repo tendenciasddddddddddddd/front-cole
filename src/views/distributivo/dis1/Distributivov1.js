@@ -91,31 +91,6 @@ export default {
         let text_2 = 'Intensivos'
         this.$store.commit('updateHeader',{text_1, text_2})
       },
-      __getPeriodo() {
-        this.isPeriodo = true;
-        this.$proxies._matriculaProxi
-          .getFull()
-          .then((x) => {
-            const filtro = x.data.niveles;
-            if (!filtro.length) {
-              this.$dialog.alert('NO HAY REGISTROS EN PERIODOS ACADÉMICOS !!');
-              this.$router.push("/").catch(() => {});
-              return;
-            }
-            let listPeriodoIntensivo = filtro.filter((x) => x.typo == "Intensivo" && x.estado == '1');
-            if (listPeriodoIntensivo.length==0) {
-              this.$dialog.alert('¡¡¡--NO EXISTE UN PERIODO ACADÉMICO ACTIVO PARA ESTA MODALIDAD.. REGISTRE O ACTIVE UN PERIODO ACADÉMICO--!!!')
-              this.$router.push("/").catch(() => {});
-              return;
-            }
-            this.idperiodoActualIntensivo = listPeriodoIntensivo[0]._id;
-            this.isPeriodo = false;
-          })
-          .catch((err) => {
-            console.log("Error", err);
-            this.isPeriodo = false;
-          });
-      },
       selectOne(ids) {
         if (!this.isSelecUsers.includes(ids)) {
           this.isSelecUsers.push(ids);
@@ -200,7 +175,6 @@ export default {
             this.model.fnivel = this.model.fnivel._id;
             this.model.fdocente = this.selecDocente._id;
             this.model.fmateria = this.model.fmateria._id;
-            this.model.facademicos = this.idperiodoActualIntensivo;
             this.model.paralelo = this.selecParalelos.nombre;
             this.$proxies._gestionProxi.updateDistributivo(this.model._id, this.model)
               .then(() => {
@@ -218,7 +192,6 @@ export default {
             this.model.fnivel = this.model.fnivel._id;
             this.model.fdocente = this.selecDocente._id;
             this.model.fmateria = this.model.fmateria._id;
-            this.model.facademicos = this.idperiodoActualIntensivo;
             this.model.paralelo = this.selecParalelos.nombre;
             this.$proxies._gestionProxi
               .createDistributivo(this.model) //-----------GUARDAR CON AXIOS
@@ -345,7 +318,6 @@ export default {
     },
     created() {
       this.verificarUsuario();
-        this.__getPeriodo();
         this.getAll(1,6);
         this. __listNivele();
             this.__listdocentes();

@@ -23,6 +23,23 @@
                 <NoFound />
             </section>
         </div>
+        <div>
+            <Modal>
+                <template v-slot:header>Sistema de notas</template>
+          <template v-slot:body>
+               <span class="negros text-sm">El módulo de registro de notas conducta y asistencia se encuantra temporalmente fuera de linea</span>
+                <div class="text-center mt-2">
+                    <img width="300" src="../../assets/img/notas_espera.svg" alt="">
+                </div>
+               
+            </template>
+          <template v-slot:acccion>
+                      <button @click="goToBack" class="btn btnNaranja mt-2" style="background-color: #0c2ccc !important;">
+                       Entiendo
+                      </button>
+         </template>
+            </Modal>
+        </div>
     </div>
 </template>
 <script >
@@ -32,6 +49,7 @@ import ProgressBar from "../../shared/ProgressBar"; //
 import ActionRowHeader from "../../shared/ActionRowHeader"
 import NoFound from "../../shared/NoFound"
 import Cards from "../../shared/Cards"
+import Modal from "../../shared/Modal"
 const arrayColors = [
     "#0f71ae",
     "#1466c9",
@@ -44,7 +62,7 @@ const arrayColors = [
 ];
 export default {
     components: {
-        ProgressBar, ActionRowHeader, NoFound, Cards,
+        ProgressBar, ActionRowHeader, NoFound, Cards,Modal
     },
     data() {
         return {
@@ -130,7 +148,7 @@ export default {
                     .updateInfoDocentes(this.user.id)
                     .then((x) => {
                         this.info = x.data;
-                        console.log(this.info);
+                        //console.log(this.info);
                         this.isData = false;
                         this.$Progress.finish();
                     })
@@ -145,6 +163,9 @@ export default {
         refresh: function () {
             this.ifChildNew = false;
             this.getData();
+        },
+        goToBack(){
+            this.$router.push("/");
         },
         verificarUsuario() {
             let text_1 = 'Gestión'

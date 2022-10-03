@@ -227,7 +227,7 @@
                 <path d="M14 7h3v5h-3z"></path>
               </svg>
             </div>
-            <span class="nav-link-text ms-1 mt-1">Cursos</span>
+            <span class="nav-link-text ms-1 mt-1">Notas</span>
           </a>
           <div class="collapse " id="authExamples"
           :class="{'show':
@@ -280,7 +280,7 @@
                <li :class="{'active': $route.name === 'al'}" class="nav-item ">
                  <router-link  to="/aulas-lista" :class="{'active': $route.name === 'al'}" class="nav-link ">
                     <span class="sidenav-mini-icon"> A </span>
-                    <span class="sidenav-normal letras fuente">Aulas</span>
+                    <span class="sidenav-normal letras fuente">Cursos</span>
                 </router-link>
               </li>
 

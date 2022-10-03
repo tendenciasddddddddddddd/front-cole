@@ -15,19 +15,16 @@
                   {{ item.nombre }}
                 </h6>
                 <div class="text-sm colorestabla fuente">
-                  <div v-if="item.estado.includes('1')">
+                  <div >
                     <span style="background-color: rgb(0, 189, 165);" class="UIStatusDot-sc-1axnt8y-0 cqKvgt"></span>
-                    Tarea Revisada
+                    Tarea Enviada
                   </div>
-                  <div v-else>
-                    <span class="UIStatusDot-sc-1axnt8y-0 cqKvgt"></span>
-                    Revision Pendiente
-                  </div>
+                  
                 </div>
               </div>
               <div class="mt-3 ms-5"><span class="text-xs ">{{ item.entrega.length }} entregas</span></div>
             </div>
-          <div class="dropstart ms-auto">
+          <div v-if="!$store.state.isAppMobile" class="dropstart ms-auto">
             <div class="d-flex  mt-2">
               <TimeEgo :fecha="item.fechad" />
               <!--v-tooltip.top-center="{content: item.descripcion, html: true}"-->
