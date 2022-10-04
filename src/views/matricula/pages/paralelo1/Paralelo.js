@@ -42,6 +42,10 @@ export default {
           id: "5",
           nombre: "F",
         },
+        {
+          id: "6",
+          nombre: "H",
+        },
       ],
       check: null,
       listPeriodo: null,

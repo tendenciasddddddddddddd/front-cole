@@ -37,9 +37,6 @@
           </div>
         </section>
       </div>
-       <div v-if="ifReportPdf">
-             <ReportePdfAdmin  @myEventClosedModalReporte="closedChildReportPdf" ></ReportePdfAdmin>
-         </div>
          <div v-if="ifConsolidado">
              <Consolidado  @myEventClosedModalConsolidado="closedChildConsolidado" ></Consolidado>
          </div>
@@ -86,7 +83,6 @@ export default {
     };
   },
   components:{
-     ReportePdfAdmin: () => import( /* webpackChunkName: "Report" */ "./pages/matricula/Reportes.vue"),
      Consolidado: () => import( /* webpackChunkName: "Consolidado" */ "./pages/consolidado/Consolidado.vue"),
       CardsOptions
   },
