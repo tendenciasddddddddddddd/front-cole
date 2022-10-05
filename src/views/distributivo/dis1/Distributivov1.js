@@ -63,6 +63,10 @@ export default {
               value: "5",
               nombre: "F",
             },
+            {
+              value: "6",
+              nombre: "H",
+            },
           ],
           isSelecUsers: [],
           subtitulo: 'none',

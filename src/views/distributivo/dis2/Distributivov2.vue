@@ -105,7 +105,7 @@
       <template v-slot:header> Distributivo Extraordinaria</template>
       <template v-slot:body>
         <Spinner v-if="isCarga"></Spinner>
-        <form @submit.prevent="save" role="form">
+        <form @submit.prevent="save" id="prov">
           <span class="parrafo">Docente</span>
           <IsSelect v-if="isDocente"></IsSelect>
           <v-select class="style-chooser" placeholder="Selecionar docente" v-else :options.sync="listDocentes"
@@ -139,15 +139,15 @@
           <p class="mb-0 text-sm text-danger">
             {{ validation.firstError("model.fmateria") }}
           </p>
-          <hr class="horizontal dark mb-1 d-xl-block d-none">
-          <div class="text-center">
-            <ButtonLoading v-if="ifLoad" />
-            <button v-else type="submit" class="btn btnNaranja  mt-1 mb-0 ">
-              {{ model._id ? "Actualizar" : "Guardar" }}
-            </button>
-          </div>
+
         </form>
       </template>
+      <template v-slot:acccion>
+            <ButtonLoading v-if="ifLoad"/>
+                      <button form="prov" v-else type="submit" class="btn btnNaranja mt-2" style="background-color: #0c2ccc !important;">
+                        {{ model._id ? "Actualizar" : "Guardar" }}
+                      </button>
+         </template>
     </Modal>
     <div v-if="ifGrid">
       <GridDistributivo2 :docentes="listDocentes" :cursos="listniveles" :materias="listMaterias" @myEventClosedAgGrid="closeAgGrid" @getData="refreshData"/>
