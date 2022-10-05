@@ -6,7 +6,7 @@
              <p class="parrafo">Cambia tu contraseña cuando lo necesites. Por seguridad, te recomendamos que esté compuesta de letras y números.</p>
               <div class="h6 text-danger fuente">{{ MsmError }}</div>
                <div v-if="isContrasenia">
-                  <form @submit.prevent="authenticate">
+                  <form @submit.prevent="authenticate" id="ifContrasenia">
                     <p class="parrafo">Contraseña actual</p>
                     <div class="form-group">
                       <input
@@ -86,6 +86,7 @@
                   </form>
                 </div>
           </template>
+         
         </Modal>
   </div>
 </template>

@@ -8,13 +8,13 @@
                   <div class="h5 negros" style="font-weight: 600"><slot name="header">  </slot></div>
                   <slot  name="body">  </slot> 
                   <div class="d-flex justify-content-between ">
-                    <button
+                    <a
                     @click="close"
                     class="btn btnNaranja mt-2"
                     style="background-color: white !important; color: #000 !important;"
                   >
                    Cerrar &nbsp; <i style="font-size: 12px" class="fa fa-close"></i>
-                  </button>
+                  </a>
                   <slot name="acccion">  </slot>
                   </div>
                    

@@ -101,9 +101,7 @@ export default {
       this.confpass = null;
     }
   },
-  created() {
 
-  },
   validators: { //ATRIBUTOS RAPA VALIDAR LOS CAMBIOS
     'newContraseña.password'(value) {
       return this.$validator

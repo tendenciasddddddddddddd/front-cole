@@ -75,7 +75,7 @@
           <ListQuizz :object="collectionQuizz" @getDataTask="getData"/>
         </section>
         <section v-if="tabs == 2">
-          3
+          En desarrollo
         </section>
         <section v-if="tabs == 3">
           <ListUsers :objectUser="collectionUser" @getDataTask="getData"/>

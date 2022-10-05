@@ -15,7 +15,6 @@
           <div class="container-fluid  py-2" v-bind:style= "[$store.state.isAppMobile ? {'padding-bottom':'55px !important'} : {'padding-bottom':'.5rem !important'}]">
            <router-view/>
             <!-- INICIO FOOTER -->
-           <!-- <Help/> -->
             <!-- <Footer /> -->
            
             <!-- FIN FOOTER -->
@@ -36,7 +35,7 @@ import Header from "@/shared/Header.vue";
 import Inicio from "@/shared/Inicio.vue";
 //import Footer from "@/shared/Footer.vue";
 import Login from "./views/auth/Login.vue";
-//import Help from "@/shared/Help.vue"
+
 export default {
   name: "app",
   mounted() {
@@ -47,7 +46,6 @@ export default {
     Login,
     Inicio,
     //Footer,
-   // Help,
     AppMovile : () => import( /* webpackChunkName: "AppMovile" */ '../src/shared/AppMovile.vue')
   },
   data() {
