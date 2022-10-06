@@ -4,7 +4,6 @@ import ProgressBar from "../../../../shared/ProgressBar"; //
 import Modal from "../../../../shared/Modal";
 import ActionRowHeader from "../../../../shared/ActionRowHeader"
 import NoFound from "../../../../shared/NoFound"
-import Cards from "../../../../shared/Cards"
 const arrayColors = [
   "#0f71ae",
   "#1466c9",
@@ -17,7 +16,7 @@ const arrayColors = [
 ];
 export default {
   components: {
-    ProgressBar,  Modal, ActionRowHeader, NoFound,Cards,
+    ProgressBar,  Modal, ActionRowHeader, NoFound,
     CreateCurso: () => import( /* webpackChunkName: "CreateCurso" */ "../../../../components/componentClassroom/grupDocente/CreateCurso"),
   },
   data() {
@@ -77,7 +76,7 @@ export default {
       });
     },
     openModules(id) {
-      this.$router.push(`/modulo-aula/${id.id}`)
+      this.$router.push(`/modulo-aula/${id}`)
     },
     getData() {
       this.isData = true;

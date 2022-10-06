@@ -38,6 +38,7 @@ Axios.interceptors.response.use(
       else if(error.response.status===403||error.response.status===401||error.response.status===404) {//||error.response.status===401
         localStorage.removeItem('access_token');
         window.location.reload(true);
+        console.log(error.response.status)
       }
       
       return Promise.reject(error);
