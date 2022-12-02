@@ -10,24 +10,25 @@
             <div v-for="item in info" :key="item.id" class="my-sm-5">
               <div class="card-header text-center ">
                 <div class="row justify-content-between">
-                  <div class="col-md-2 text-start">
-                    <img class=" w-50 " src="../../../../assets/img/escudo.png" alt="Logo" />
+                  <div class="col-md-2 text-center">
+                    <img class=" w-100 " src="../../../../assets/img/escudoss.jpg" alt="Logo" />
                   </div>
                   <div class="col-md-9">
                     <span class="h6 negros">
-                        UNIDAD EDUCATIVA FISCOMISIONAL "MONS. LEONIDAS PROAÑO"
+                        UNIDAD EDUCATIVA FISCOMISIONAL PCEI "MONS. LEONIDAS PROAÑO"
                     </span><br>
                     <span style="margin-top:-10px" class="text-sm text-center negros">
-                      Dirección: Av. Julio Robles  y Las Tejerías Teléf: 063731060 - 062977118/119
+                      Dirección: Av. Julio Robles  y Las Tejerías Teléf: 062987006 - 0999400012
                     </span> <br>
                     <span class="text-xs negros">Tulcán - Ecuador</span>
                   </div>
-                  <div class="col-lg-1  text-md-end ">
+                  <div class="col-lg-1  text-center ">
+                    <img class=" w-100 " src="../../../../assets/img/escudo.png" alt="Logo" />
                   </div>
                 </div>
                 <hr style="height: 2px;background: #000;margin-top: -4px;">
-                <div class="text-end">
-                  <span class="negros"> <b>17 de agosto de 2020</b> </span>
+                <div class="text-sm text-end me-7">
+                  <span class="negros"> <b>Tulcán, {{ fechasActual }}</b> </span>
                 </div> <br><br><br><br>
                 <span class="h5 negros ">CERTIFICADO DE MATRICULA</span>
                 <div class="d-flex justify-content-around mt-7">
@@ -59,20 +60,26 @@
                   <div class="text-center">
                     <span class="h6 pb-0">
                       <b>__________________________________</b>
-                    </span> <br>
-                    <span class="negros text-sm"><b>RECTOR/A</b></span>
+                    </span> 
+                    <p class="negros text-sm">RECTOR/A<br>
+                    <b>MSc. Jaime Villarreal</b> <br>
+                    <b>CI. 040834073</b></p>
+                    
                   </div>
                   <div>
                     <div class="text-center">
                       <span class="h6 pb-0">
                         <b>__________________________________</b>
-                      </span> <br>
-                      <span class="negros text-sm"><b>SECRETARIO/A</b></span>
+                      </span> 
+                      <p class="negros text-sm">SECRETARIO/A<br>
+                    <b>Lic. Luis Paspuezán</b> <br>
+                    <b>CI. 0401483169</b></p>
+                    
                     </div>
                   </div>
                 </div> <br><br>
                 <p class="text-start mt-10">
-                  <b class=" text-xs negros">TULCÁN, {{ fechasActual }} </b>
+                  
                 </p>
               </div>
             </div>
@@ -144,13 +151,13 @@
       },
       __calcularfechaActual() {
         const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-          "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Deciembre"];
-        const dateObj = new Date();
-        const month = monthNames[dateObj.getMonth()];
-        const day = String(dateObj.getDate()).padStart(2, '0');
-        const year = dateObj.getFullYear();
-        const output = month + '\n' + day + ',' + year;
-        this.fechasActual = output;
+        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+      const dateObj = new Date();
+      const month = monthNames[dateObj.getMonth()];
+      const day = String(dateObj.getDate()).padStart(2, '0');
+      const year = dateObj.getFullYear();
+      const output = day+" de "+ month + '\n' + ' del ' + year;
+      this.fechasActual = output;
       },
       fechaActual() {
         var date = new Date();
